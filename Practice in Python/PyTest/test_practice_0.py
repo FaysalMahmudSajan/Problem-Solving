@@ -68,3 +68,15 @@ def test_delete_user(db):
     db.add_user(2,'Faysal')
     db.delete_user(2)
     assert db.get_user(2) is None
+
+
+@pytest.mark.parametrize("num,expected",[
+    (1,False),
+    (1,False),
+    (2,True),
+    (0,False),
+    (4,False),
+    (5,True),
+])
+def test_is_prime(num,expected):
+    assert is_prime(num)==expected
