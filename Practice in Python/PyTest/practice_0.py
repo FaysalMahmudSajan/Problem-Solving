@@ -75,5 +75,9 @@ def is_prime(n):
 
 
 import requests
-
-def get_weather_api(city)
+def get_weather_api():
+    response=requests.get("https://api.open-meteo.com/v1/forecast?latitude=23.8103&longitude=90.4125&current_weather=true")
+    if response.status_code ==200:
+        return response.json()
+    else:
+        raise ValueError("Could not fetch weather data")
